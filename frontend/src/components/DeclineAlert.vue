@@ -38,15 +38,15 @@
                 <strong>峰值日期:</strong>
                 {{ formatDate(period.start_date) }}
               </p>
-              <p>
+              <p class="hidden sm:block">
                 <strong>峰值價格:</strong>
                 {{ period.peak_value.toFixed(2) }}
               </p>
-              <p>
+              <p class="hidden sm:block">
                 <strong>當前價格:</strong>
                 {{ period.trough_value?.toFixed(2) || 'N/A' }}
               </p>
-              <p class="text-lg font-bold mt-2">
+              <p class="font-bold">
                 <strong>下跌幅度:</strong>
                 {{ period.decline_percentage.toFixed(2) }}%
               </p>
@@ -100,16 +100,16 @@
                 {{ formatDate(period.start_date) }} →
                 {{ formatDate(period.end_date) }}
               </p>
-              <p>
+              <p class="hidden sm:block">
                 <strong>峰值價格:</strong>
                 {{ period.peak_value.toFixed(2) }}
               </p>
-              <p>
+              <p class="hidden sm:block">
                 <strong>谷底價格:</strong>
                 {{ period.trough_value?.toFixed(2) || 'N/A' }}
               </p>
               <p class="font-bold">
-                <strong>最大下跌幅度:</strong>
+                <strong>下跌幅度:</strong>
                 {{ period.decline_percentage.toFixed(2) }}%
               </p>
               <div v-if="period.alert_levels.length > 0" class="mt-1.5 sm:mt-3">
