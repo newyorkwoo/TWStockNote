@@ -117,23 +117,30 @@ const highlightAlertLevel = (period, level) => {
   // Update chart with highlighted period
   updateChart()
   
-  // Center the decline period in the chart view
+  // Center the decline period in the chart view (maintain current zoom level)
   setTimeout(() => {
     if (!chart) return
+    
+    // Get the current visible range to maintain zoom level
+    const timeScale = chart.timeScale()
+    const currentRange = timeScale.getVisibleRange()
+    
+    if (!currentRange) return
+    
+    // Calculate current visible range duration
+    const currentDuration = currentRange.to - currentRange.from
     
     // Calculate the middle point of the decline period
     const middleTime = (startTime + endTime) / 2
     
-    // Calculate visible range: 60 days before and after the middle point (total 120 days)
-    const secondsPerDay = 86400
-    const visibleDaysHalf = 60 // Show 60 days on each side
-    const fromTime = middleTime - (visibleDaysHalf * secondsPerDay)
-    const toTime = middleTime + (visibleDaysHalf * secondsPerDay)
+    // Set new range with the same duration, centered on the decline period
+    const newFrom = middleTime - (currentDuration / 2)
+    const newTo = middleTime + (currentDuration / 2)
     
-    // Set the visible range to center the decline period
-    chart.timeScale().setVisibleRange({
-      from: fromTime,
-      to: toTime
+    // Scroll to the new range while maintaining zoom level
+    timeScale.setVisibleRange({
+      from: newFrom,
+      to: newTo
     })
   }, 100) // Small delay to ensure chart is updated
 }
