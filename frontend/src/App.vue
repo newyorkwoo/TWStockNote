@@ -22,7 +22,7 @@
 
     <!-- Main Content -->
     <main class="flex-1 overflow-hidden">
-      <div class="h-full flex flex-col max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-2 sm:py-6 lg:py-8">
+      <div class="h-full flex flex-col max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-1.5 sm:py-6 lg:py-8">
         <!-- Top Section: Date Picker, Chart -->
         <div class="flex-shrink-0">
           <!-- Date Range Picker -->
@@ -57,7 +57,7 @@
         </div>
 
         <!-- Scrollable Decline Alerts Section -->
-        <div class="flex-1 overflow-y-auto mt-2 sm:mt-6" v-if="declinePeriods.length > 0">
+        <div class="flex-1 overflow-y-auto mt-1.5 sm:mt-6" v-if="declinePeriods.length > 0">
           <DeclineAlert
             :periods="declinePeriods"
             :selected-alert="selectedAlert"
