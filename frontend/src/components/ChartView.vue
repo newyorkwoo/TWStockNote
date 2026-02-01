@@ -169,10 +169,14 @@ let declineBackgroundSeries = [] // Store decline background series
 const initChart = () => {
   if (!chartContainer.value) return
 
+  // Get responsive height
+  const width = typeof window !== 'undefined' ? window.innerWidth : 1024
+  const height = width < 640 ? 50 : width < 1024 ? 350 : 500
+
   // Create chart
   chart = createChart(chartContainer.value, {
     width: chartContainer.value.clientWidth,
-    height: 500,
+    height: height,
     layout: {
       background: { color: '#ffffff' },
       textColor: '#333'

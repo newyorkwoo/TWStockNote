@@ -34,14 +34,14 @@
             @apply="loadData"
           />
 
-<!-- Chart View (hidden on mobile) -->
+<!-- Chart View -->
         <ChartView
           ref="chartViewRef"
           v-if="historicalData.length > 0"
           :data="historicalData"
           :decline-periods="declinePeriods"
           :loading="loading"
-          class="chart-container hidden sm:block"
+          class="chart-container"
           />
 
           <!-- Loading State -->
