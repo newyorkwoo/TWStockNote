@@ -6,7 +6,7 @@
       在選定的時間範圍內沒有偵測到下跌期間。
     </div>
 
-    <div v-else class="space-y-2 sm:space-y-4">
+    <div v-else class="space-y-1.5 sm:space-y-4">
       <!-- Ongoing Decline Alert -->
       <div
         v-for="period in ongoingPeriods"

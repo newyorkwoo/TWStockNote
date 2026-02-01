@@ -57,7 +57,7 @@
         </div>
 
         <!-- Scrollable Decline Alerts Section -->
-        <div class="flex-1 overflow-y-auto mt-1.5 sm:mt-6" v-if="declinePeriods.length > 0">
+        <div class="flex-1 overflow-y-auto mt-0.5 sm:mt-6" v-if="declinePeriods.length > 0">
           <DeclineAlert
             :periods="declinePeriods"
             :selected-alert="selectedAlert"
