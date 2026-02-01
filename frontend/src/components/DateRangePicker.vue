@@ -17,40 +17,34 @@
       </div>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4">
+    <div class="flex flex-row gap-1.5 sm:gap-4">
       <!-- Start Date -->
-      <div>
-        <label for="start-date" class="block text-xs sm:text-sm font-medium text-gray-700 mb-0.5 sm:mb-2">
-          開始日期
-        </label>
+      <div class="flex-1">
         <input
           id="start-date"
           type="date"
           :value="startDate"
           @input="$emit('update:startDate', $event.target.value)"
-          class="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
+          class="w-full px-1.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
         />
       </div>
 
       <!-- End Date -->
-      <div>
-        <label for="end-date" class="block text-xs sm:text-sm font-medium text-gray-700 mb-0.5 sm:mb-2">
-          結束日期
-        </label>
+      <div class="flex-1">
         <input
           id="end-date"
           type="date"
           :value="endDate"
           @input="$emit('update:endDate', $event.target.value)"
-          class="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
+          class="w-full px-1.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
         />
       </div>
 
       <!-- Apply Button -->
-      <div class="flex items-end">
+      <div>
         <button
           @click="$emit('apply')"
-          class="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 transition-colors"
+          class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-base bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
         >
           套用
         </button>
