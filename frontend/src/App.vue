@@ -2,7 +2,7 @@
   <div class="h-screen flex flex-col bg-gray-50">
     <!-- Header -->
     <header class="bg-white shadow flex-shrink-0">
-      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-1.5 sm:py-4">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-1 sm:py-4">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5 sm:gap-0">
           <div>
             <h1 class="text-base sm:text-2xl lg:text-3xl font-bold text-gray-900">

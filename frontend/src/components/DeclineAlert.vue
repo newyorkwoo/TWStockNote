@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-2 sm:p-4 lg:p-6 mb-2 sm:mb-6">
-    <h2 class="text-sm sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-4">下跌警報</h2>
+  <div class="bg-white rounded-lg shadow p-1.5 sm:p-4 lg:p-6 mb-2 sm:mb-6">
+    <h2 class="text-sm sm:text-xl font-semibold text-gray-900 mb-1.5 sm:mb-4">下跌警報</h2>
 
     <div v-if="periods.length === 0" class="text-sm sm:text-base text-gray-600">
       在選定的時間範圍內沒有偵測到下跌期間。

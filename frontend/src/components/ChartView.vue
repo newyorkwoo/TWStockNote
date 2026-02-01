@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-1.5 sm:p-4 lg:p-6 mb-1 sm:mb-6">
+  <div class="bg-white rounded-lg shadow p-1 sm:p-4 lg:p-6 mb-0.5 sm:mb-6">
     <h2 class="hidden sm:block text-xs sm:text-xl font-semibold text-gray-900 mb-1.5 sm:mb-4">K線圖表</h2>
     
     <div class="relative">
