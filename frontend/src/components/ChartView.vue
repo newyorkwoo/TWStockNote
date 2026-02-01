@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-1 sm:p-4 lg:p-6 mb-0.5 sm:mb-6">
-    <h2 class="hidden sm:block text-xs sm:text-xl font-semibold text-gray-900 mb-1.5 sm:mb-4">K線圖表</h2>
+  <div class="bg-white rounded-lg shadow p-2 sm:p-4 lg:p-6 mb-1 sm:mb-6">
+    <h2 class="text-xs sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-4">K線圖表</h2>
     
     <div class="relative">
       <!-- Chart Container -->
@@ -55,7 +55,7 @@ const selectedAlert = ref({
 const chartStyle = computed(() => {
   // Use window.innerWidth to determine device size
   const width = typeof window !== 'undefined' ? window.innerWidth : 1024
-  const height = width < 640 ? '50px' : width < 1024 ? '350px' : '500px'
+  const height = width < 640 ? '200px' : width < 1024 ? '350px' : '500px'
   return `height: ${height};`
 })
 
@@ -171,7 +171,7 @@ const initChart = () => {
 
   // Get responsive height
   const width = typeof window !== 'undefined' ? window.innerWidth : 1024
-  const height = width < 640 ? 50 : width < 1024 ? 350 : 500
+  const height = width < 640 ? 200 : width < 1024 ? 350 : 500
 
   // Create chart
   chart = createChart(chartContainer.value, {
