@@ -1,6 +1,21 @@
 <template>
   <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
-    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">日期範圍</h2>
+    <!-- Title and Quick Select Buttons Row -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-gray-900">日期範圍</h2>
+      
+      <!-- Quick Select Buttons -->
+      <div class="flex flex-wrap gap-1.5 sm:gap-2">
+        <button
+          v-for="preset in presets"
+          :key="preset.label"
+          @click="applyPreset(preset)"
+          class="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors whitespace-nowrap"
+        >
+          {{ preset.label }}
+        </button>
+      </div>
+    </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
       <!-- Start Date -->
@@ -40,18 +55,6 @@
           套用
         </button>
       </div>
-    </div>
-
-    <!-- Quick Select Buttons -->
-    <div class="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
-      <button
-        v-for="preset in presets"
-        :key="preset.label"
-        @click="applyPreset(preset)"
-        class="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
-      >
-        {{ preset.label }}
-      </button>
     </div>
   </div>
 </template>
