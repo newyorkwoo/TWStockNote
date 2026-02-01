@@ -55,7 +55,7 @@ const selectedAlert = ref({
 const chartStyle = computed(() => {
   // Use window.innerWidth to determine device size
   const width = typeof window !== 'undefined' ? window.innerWidth : 1024
-  const height = width < 640 ? '200px' : width < 1024 ? '350px' : '500px'
+  const height = width < 640 ? '280px' : width < 1024 ? '350px' : '500px'
   return `height: ${height};`
 })
 
@@ -171,7 +171,7 @@ const initChart = () => {
 
   // Get responsive height
   const width = typeof window !== 'undefined' ? window.innerWidth : 1024
-  const height = width < 640 ? 200 : width < 1024 ? 350 : 500
+  const height = width < 640 ? 280 : width < 1024 ? 350 : 500
 
   // Create chart
   chart = createChart(chartContainer.value, {
