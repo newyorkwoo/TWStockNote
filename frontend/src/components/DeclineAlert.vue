@@ -196,10 +196,12 @@ const ongoingPeriods = computed(() => {
 })
 
 /**
- * Filter completed decline periods
+ * Filter completed decline periods (sorted by date, newest first)
  */
 const completedPeriods = computed(() => {
-  return props.periods.filter(p => !p.is_ongoing)
+  return props.periods
+    .filter(p => !p.is_ongoing)
+    .sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
 })
 
 /**
