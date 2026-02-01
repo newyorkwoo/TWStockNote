@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-6 mb-6">
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">統計資訊</h2>
+  <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
+    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">統計資訊</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
       <!-- Latest Price -->
-      <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-4">
-        <div class="text-sm font-medium text-blue-600 mb-1">最新價格</div>
-        <div class="text-2xl font-bold text-blue-900">
+      <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-3 sm:p-4">
+        <div class="text-xs sm:text-sm font-medium text-blue-600 mb-1">最新價格</div>
+        <div class="text-xl sm:text-2xl font-bold text-blue-900">
           {{ latest.close.toFixed(2) }}
         </div>
         <div class="text-xs text-blue-600 mt-1">
@@ -17,7 +17,7 @@
       <!-- Daily Change -->
       <div
         :class="[
-          'rounded-lg p-4',
+          'rounded-lg p-3 sm:p-4',
           dailyChange >= 0
             ? 'bg-gradient-to-br from-green-50 to-green-100'
             : 'bg-gradient-to-br from-red-50 to-red-100'
@@ -25,7 +25,7 @@
       >
         <div
           :class="[
-            'text-sm font-medium mb-1',
+            'text-xs sm:text-sm font-medium mb-1',
             dailyChange >= 0 ? 'text-green-600' : 'text-red-600'
           ]"
         >
@@ -33,7 +33,7 @@
         </div>
         <div
           :class="[
-            'text-2xl font-bold',
+            'text-xl sm:text-2xl font-bold',
             dailyChange >= 0 ? 'text-green-900' : 'text-red-900'
           ]"
         >
@@ -52,7 +52,7 @@
       <!-- Current Status -->
       <div
         :class="[
-          'rounded-lg p-4',
+          'rounded-lg p-3 sm:p-4',
           currentDecline
             ? 'bg-gradient-to-br from-red-50 to-red-100'
             : 'bg-gradient-to-br from-green-50 to-green-100'
@@ -60,7 +60,7 @@
       >
         <div
           :class="[
-            'text-sm font-medium mb-1',
+            'text-xs sm:text-sm font-medium mb-1',
             currentDecline ? 'text-red-600' : 'text-green-600'
           ]"
         >
@@ -68,7 +68,7 @@
         </div>
         <div
           :class="[
-            'text-lg font-bold',
+            'text-base sm:text-lg font-bold',
             currentDecline ? 'text-red-900' : 'text-green-900'
           ]"
         >
@@ -83,9 +83,9 @@
       </div>
 
       <!-- Volume -->
-      <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-4">
-        <div class="text-sm font-medium text-purple-600 mb-1">成交量</div>
-        <div class="text-2xl font-bold text-purple-900">
+      <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-3 sm:p-4">
+        <div class="text-xs sm:text-sm font-medium text-purple-600 mb-1">成交量</div>
+        <div class="text-xl sm:text-2xl font-bold text-purple-900">
           {{ formatVolume(latest.volume) }}
         </div>
         <div class="text-xs text-purple-600 mt-1">

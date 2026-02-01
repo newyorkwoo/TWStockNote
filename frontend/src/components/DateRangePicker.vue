@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-6 mb-6">
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">日期範圍</h2>
+  <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
+    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">日期範圍</h2>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
       <!-- Start Date -->
       <div>
-        <label for="start-date" class="block text-sm font-medium text-gray-700 mb-2">
+        <label for="start-date" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
           開始日期
         </label>
         <input
@@ -13,13 +13,13 @@
           type="date"
           :value="startDate"
           @input="$emit('update:startDate', $event.target.value)"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
+          class="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
         />
       </div>
 
       <!-- End Date -->
       <div>
-        <label for="end-date" class="block text-sm font-medium text-gray-700 mb-2">
+        <label for="end-date" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
           結束日期
         </label>
         <input
@@ -27,7 +27,7 @@
           type="date"
           :value="endDate"
           @input="$emit('update:endDate', $event.target.value)"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
+          class="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-nasdaq-blue focus:border-transparent"
         />
       </div>
 
@@ -35,7 +35,7 @@
       <div class="flex items-end">
         <button
           @click="$emit('apply')"
-          class="w-full px-4 py-2 bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 transition-colors"
+          class="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
           套用
         </button>
@@ -43,12 +43,12 @@
     </div>
 
     <!-- Quick Select Buttons -->
-    <div class="mt-4 flex flex-wrap gap-2">
+    <div class="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
       <button
         v-for="preset in presets"
         :key="preset.label"
         @click="applyPreset(preset)"
-        class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+        class="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
       >
         {{ preset.label }}
       </button>

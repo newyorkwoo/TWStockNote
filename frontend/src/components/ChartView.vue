@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-6 mb-6">
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">K線圖表</h2>
+  <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
+    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">K線圖表</h2>
     
     <div class="relative">
       <!-- Chart Container -->
-      <div ref="chartContainer" class="w-full" style="height: 500px;"></div>
+      <div ref="chartContainer" class="w-full" :style="chartStyle"></div>
       
       <!-- Loading Overlay -->
       <div
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Chart Info -->
-    <div class="mt-4 text-sm text-gray-600">
+    <div class="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600">
       <p>
         紅色區域表示下跌期間 (峰值到谷底 >10%)
       </p>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, onUnmounted } from 'vue'
+import { ref, onMounted, watch, onUnmounted, computed } from 'vue'
 import { createChart } from 'lightweight-charts'
 
 const props = defineProps({
@@ -49,6 +49,14 @@ const emit = defineEmits(['ready'])
 const selectedAlert = ref({
   periodStartDate: null,
   level: null
+})
+
+// Responsive chart height
+const chartStyle = computed(() => {
+  // Use window.innerWidth to determine device size
+  const width = typeof window !== 'undefined' ? window.innerWidth : 1024
+  const height = width < 640 ? '300px' : width < 1024 ? '400px' : '500px'
+  return `height: ${height};`
 })
 
 let currentPriceLine = null

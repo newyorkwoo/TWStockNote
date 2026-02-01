@@ -2,20 +2,20 @@
   <div class="h-screen flex flex-col bg-gray-50">
     <!-- Header -->
     <header class="bg-white shadow flex-shrink-0">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="flex justify-between items-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
           <div>
-            <h1 class="text-3xl font-bold text-gray-900">
+            <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
               Nasdaq Decline Analysis
             </h1>
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-xs sm:text-sm text-gray-600">
               追蹤 Nasdaq 指數下跌期間與警報
             </p>
           </div>
           <button
             @click="updateData"
             :disabled="loading"
-            class="px-4 py-2 bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="w-full sm:w-auto px-4 py-2 bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
           >
             {{ loading ? '更新中...' : '更新資料' }}
           </button>
@@ -25,7 +25,7 @@
 
     <!-- Main Content -->
     <main class="flex-1 overflow-hidden">
-      <div class="h-full flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="h-full flex flex-col max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8">
         <!-- Top Section: Date Picker, Chart -->
         <div class="flex-shrink-0">
           <!-- Date Range Picker -->

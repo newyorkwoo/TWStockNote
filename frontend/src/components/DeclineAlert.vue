@@ -1,22 +1,22 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-6 mb-6">
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">下跌警報</h2>
+  <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
+    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">下跌警報</h2>
 
-    <div v-if="periods.length === 0" class="text-gray-600">
+    <div v-if="periods.length === 0" class="text-sm sm:text-base text-gray-600">
       在選定的時間範圍內沒有偵測到下跌期間。
     </div>
 
-    <div v-else class="space-y-4">
+    <div v-else class="space-y-3 sm:space-y-4">
       <!-- Ongoing Decline Alert -->
       <div
         v-for="period in ongoingPeriods"
         :key="period.start_date"
-        class="border-l-4 border-nasdaq-red bg-red-50 p-4 rounded-r-lg"
+        class="border-l-4 border-nasdaq-red bg-red-50 p-3 sm:p-4 rounded-r-lg"
       >
         <div class="flex items-start">
           <div class="flex-shrink-0">
             <svg
-              class="h-6 w-6 text-nasdaq-red"
+              class="h-5 w-5 sm:h-6 sm:w-6 text-nasdaq-red"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -29,11 +29,11 @@
               />
             </svg>
           </div>
-          <div class="ml-3 flex-1">
-            <h3 class="text-lg font-medium text-red-900">
+          <div class="ml-2 sm:ml-3 flex-1">
+            <h3 class="text-base sm:text-lg font-medium text-red-900">
               ⚠️ 進行中的下跌
             </h3>
-            <div class="mt-2 text-sm text-red-800">
+            <div class="mt-2 text-xs sm:text-sm text-red-800">
               <p>
                 <strong>峰值日期:</strong>
                 {{ formatDate(period.start_date) }}
@@ -52,7 +52,7 @@
               </p>
               <div v-if="period.alert_levels.length > 0" class="mt-2">
                 <strong>觸發的警報等級:</strong>
-                <div class="flex flex-wrap gap-2 mt-1">
+                <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-1">
                   <button
                     v-for="level in period.alert_levels"
                     :key="level"
@@ -72,12 +72,12 @@
       <div
         v-for="period in completedPeriods"
         :key="period.start_date"
-        class="border-l-4 border-gray-300 bg-gray-50 p-4 rounded-r-lg"
+        class="border-l-4 border-gray-300 bg-gray-50 p-3 sm:p-4 rounded-r-lg"
       >
         <div class="flex items-start">
           <div class="flex-shrink-0">
             <svg
-              class="h-6 w-6 text-gray-400"
+              class="h-5 w-5 sm:h-6 sm:w-6 text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -90,11 +90,11 @@
               />
             </svg>
           </div>
-          <div class="ml-3 flex-1">
-            <h3 class="text-lg font-medium text-gray-900">
+          <div class="ml-2 sm:ml-3 flex-1">
+            <h3 class="text-base sm:text-lg font-medium text-gray-900">
               歷史下跌期間
             </h3>
-            <div class="mt-2 text-sm text-gray-700">
+            <div class="mt-2 text-xs sm:text-sm text-gray-700">
               <p>
                 <strong>期間:</strong>
                 {{ formatDate(period.start_date) }} →
@@ -114,7 +114,7 @@
               </p>
               <div v-if="period.alert_levels.length > 0" class="mt-2">
                 <strong>觸發的警報等級:</strong>
-                <div class="flex flex-wrap gap-2 mt-1">
+                <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-1">
                   <button
                     v-for="level in period.alert_levels"
                     :key="level"
@@ -171,12 +171,12 @@ const getButtonClass = (period, level, isOngoing = false) => {
   const isSelected = isAlertSelected(period, level)
   
   if (isSelected) {
-    return 'px-2 py-1 bg-green-500 text-white rounded text-sm font-medium ring-2 ring-green-600 ring-offset-1 transition-all cursor-pointer'
+    return 'px-2 sm:px-2.5 py-0.5 sm:py-1 bg-green-500 text-white rounded text-xs sm:text-sm font-medium ring-2 ring-green-600 ring-offset-1 transition-all cursor-pointer'
   }
   
   if (isOngoing) {
     // For ongoing periods, use the original alert level colors
-    let baseClass = 'px-2 py-1 rounded text-sm font-medium hover:ring-2 hover:ring-offset-1 hover:ring-blue-500 transition-all cursor-pointer '
+    let baseClass = 'px-2 sm:px-2.5 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium hover:ring-2 hover:ring-offset-1 hover:ring-blue-500 transition-all cursor-pointer '
     if (level >= 30) return baseClass + 'bg-red-700 text-white'
     if (level >= 25) return baseClass + 'bg-red-600 text-white'
     if (level >= 20) return baseClass + 'bg-red-500 text-white'
@@ -185,7 +185,7 @@ const getButtonClass = (period, level, isOngoing = false) => {
   }
   
   // For historical periods
-  return 'px-2 py-1 bg-gray-200 text-gray-700 rounded text-sm font-medium hover:bg-blue-500 hover:text-white transition-colors cursor-pointer'
+  return 'px-2 sm:px-2.5 py-0.5 sm:py-1 bg-gray-200 text-gray-700 rounded text-xs sm:text-sm font-medium hover:bg-blue-500 hover:text-white transition-colors cursor-pointer'
 }
 
 /**
