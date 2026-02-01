@@ -50,9 +50,9 @@
                 <strong>下跌幅度:</strong>
                 {{ period.decline_percentage.toFixed(2) }}%
               </p>
-              <div v-if="period.alert_levels.length > 0" class="mt-2">
+              <div v-if="period.alert_levels.length > 0" class="mt-3">
                 <strong>觸發的警報等級:</strong>
-                <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-1">
+                <div class="flex flex-wrap gap-2 sm:gap-3 mt-2">
                   <button
                     v-for="level in period.alert_levels"
                     :key="level"
@@ -112,9 +112,9 @@
                 <strong>最大下跌幅度:</strong>
                 {{ period.decline_percentage.toFixed(2) }}%
               </p>
-              <div v-if="period.alert_levels.length > 0" class="mt-2">
+              <div v-if="period.alert_levels.length > 0" class="mt-3">
                 <strong>觸發的警報等級:</strong>
-                <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-1">
+                <div class="flex flex-wrap gap-2 sm:gap-3 mt-2">
                   <button
                     v-for="level in period.alert_levels"
                     :key="level"
@@ -171,12 +171,12 @@ const getButtonClass = (period, level, isOngoing = false) => {
   const isSelected = isAlertSelected(period, level)
   
   if (isSelected) {
-    return 'px-2 sm:px-2.5 py-0.5 sm:py-1 bg-green-500 text-white rounded text-xs sm:text-sm font-medium ring-2 ring-green-600 ring-offset-1 transition-all cursor-pointer'
+    return 'px-3 sm:px-4 py-2 sm:py-2.5 min-h-[44px] bg-green-500 text-white rounded-lg text-sm sm:text-base font-medium ring-2 ring-green-600 ring-offset-1 transition-all cursor-pointer active:scale-95'
   }
   
   if (isOngoing) {
     // For ongoing periods, use the original alert level colors
-    let baseClass = 'px-2 sm:px-2.5 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium hover:ring-2 hover:ring-offset-1 hover:ring-blue-500 transition-all cursor-pointer '
+    let baseClass = 'px-3 sm:px-4 py-2 sm:py-2.5 min-h-[44px] rounded-lg text-sm sm:text-base font-medium hover:ring-2 hover:ring-offset-1 hover:ring-blue-500 transition-all cursor-pointer active:scale-95 '
     if (level >= 30) return baseClass + 'bg-red-700 text-white'
     if (level >= 25) return baseClass + 'bg-red-600 text-white'
     if (level >= 20) return baseClass + 'bg-red-500 text-white'
@@ -185,7 +185,7 @@ const getButtonClass = (period, level, isOngoing = false) => {
   }
   
   // For historical periods
-  return 'px-2 sm:px-2.5 py-0.5 sm:py-1 bg-gray-200 text-gray-700 rounded text-xs sm:text-sm font-medium hover:bg-blue-500 hover:text-white transition-colors cursor-pointer'
+  return 'px-3 sm:px-4 py-2 sm:py-2.5 min-h-[44px] bg-gray-200 text-gray-700 rounded-lg text-sm sm:text-base font-medium hover:bg-blue-500 hover:text-white transition-all cursor-pointer active:scale-95'
 }
 
 /**
