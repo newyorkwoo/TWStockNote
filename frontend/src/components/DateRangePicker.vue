@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-2 sm:p-4 lg:p-6 mb-1.5 sm:mb-6">
+  <div class="bg-white rounded-lg shadow p-1.5 sm:p-4 lg:p-6 mb-1 sm:mb-6">
     <!-- Title and Quick Select Buttons Row -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-4 mb-1.5 sm:mb-4">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 mb-1 sm:mb-4">
       <h2 class="text-xs sm:text-xl font-semibold text-gray-900">日期範圍</h2>
       
       <!-- Quick Select Buttons -->

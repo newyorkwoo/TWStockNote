@@ -21,43 +21,40 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-hidden">
-      <div class="h-full flex flex-col max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-1.5 sm:py-6 lg:py-8">
-        <!-- Top Section: Date Picker, Chart -->
-        <div class="flex-shrink-0">
-          <!-- Date Range Picker -->
-          <DateRangePicker
-            :start-date="startDate"
-            :end-date="endDate"
-            @update:start-date="startDate = $event"
-            @update:end-date="endDate = $event"
-            @apply="loadData"
-          />
+    <main class="flex-1 overflow-y-auto">
+      <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-1.5 sm:py-6 lg:py-8">
+        <!-- Date Range Picker -->
+        <DateRangePicker
+          :start-date="startDate"
+          :end-date="endDate"
+          @update:start-date="startDate = $event"
+          @update:end-date="endDate = $event"
+          @apply="loadData"
+        />
 
-          <!-- Chart View -->
-          <ChartView
-            ref="chartViewRef"
-            v-if="historicalData.length > 0"
-            :data="historicalData"
-            :decline-periods="declinePeriods"
-            :loading="loading"
-            class="chart-container"
-          />
+        <!-- Chart View -->
+        <ChartView
+          ref="chartViewRef"
+          v-if="historicalData.length > 0"
+          :data="historicalData"
+          :decline-periods="declinePeriods"
+          :loading="loading"
+          class="chart-container"
+        />
 
-          <!-- Loading State -->
-          <div v-if="loading && historicalData.length === 0" class="text-center py-12">
-            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-nasdaq-blue"></div>
-            <p class="mt-4 text-gray-600">載入資料中...</p>
-          </div>
-
-          <!-- Error State -->
-          <div v-if="error" class="bg-red-50 border border-red-200 rounded-lg p-4">
-            <p class="text-red-800">{{ error }}</p>
-          </div>
+        <!-- Loading State -->
+        <div v-if="loading && historicalData.length === 0" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-nasdaq-blue"></div>
+          <p class="mt-4 text-gray-600">載入資料中...</p>
         </div>
 
-        <!-- Scrollable Decline Alerts Section -->
-        <div class="flex-1 overflow-y-auto mt-0.5 sm:mt-6" v-if="declinePeriods.length > 0">
+        <!-- Error State -->
+        <div v-if="error" class="bg-red-50 border border-red-200 rounded-lg p-4">
+          <p class="text-red-800">{{ error }}</p>
+        </div>
+
+        <!-- Decline Alerts Section -->
+        <div v-if="declinePeriods.length > 0" class="mt-0.5 sm:mt-6">
           <DeclineAlert
             :periods="declinePeriods"
             :selected-alert="selectedAlert"
