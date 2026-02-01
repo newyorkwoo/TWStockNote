@@ -2,20 +2,17 @@
   <div class="h-screen flex flex-col bg-gray-50">
     <!-- Header -->
     <header class="bg-white shadow flex-shrink-0">
-      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-4">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-1.5 sm:py-4">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5 sm:gap-0">
           <div>
-            <h1 class="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-900">
-              Nasdaq Decline Analysis
+            <h1 class="text-base sm:text-2xl lg:text-3xl font-bold text-gray-900">
+              Nasdaq 下跌分析
             </h1>
-            <p class="mt-0.5 text-xs sm:text-sm text-gray-600">
-              追蹤 Nasdaq 指數下跌期間與警報
-            </p>
           </div>
           <button
             @click="updateData"
             :disabled="loading"
-            class="w-full sm:w-auto px-4 py-2 bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
+            class="hidden sm:block px-4 py-2 bg-nasdaq-blue text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
           >
             {{ loading ? '更新中...' : '更新資料' }}
           </button>
@@ -25,7 +22,7 @@
 
     <!-- Main Content -->
     <main class="flex-1 overflow-hidden">
-      <div class="h-full flex flex-col max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8">
+      <div class="h-full flex flex-col max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-2 sm:py-6 lg:py-8">
         <!-- Top Section: Date Picker, Chart -->
         <div class="flex-shrink-0">
           <!-- Date Range Picker -->
@@ -60,7 +57,7 @@
         </div>
 
         <!-- Scrollable Decline Alerts Section -->
-        <div class="flex-1 overflow-y-auto mt-6" v-if="declinePeriods.length > 0">
+        <div class="flex-1 overflow-y-auto mt-2 sm:mt-6" v-if="declinePeriods.length > 0">
           <DeclineAlert
             :periods="declinePeriods"
             :selected-alert="selectedAlert"

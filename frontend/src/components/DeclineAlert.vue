@@ -1,22 +1,22 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
-    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">下跌警報</h2>
+  <div class="bg-white rounded-lg shadow p-2 sm:p-4 lg:p-6 mb-2 sm:mb-6">
+    <h2 class="text-sm sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-4">下跌警報</h2>
 
     <div v-if="periods.length === 0" class="text-sm sm:text-base text-gray-600">
       在選定的時間範圍內沒有偵測到下跌期間。
     </div>
 
-    <div v-else class="space-y-3 sm:space-y-4">
+    <div v-else class="space-y-2 sm:space-y-4">
       <!-- Ongoing Decline Alert -->
       <div
         v-for="period in ongoingPeriods"
         :key="period.start_date"
-        class="border-l-4 border-nasdaq-red bg-red-50 p-3 sm:p-4 rounded-r-lg"
+        class="border-l-4 border-nasdaq-red bg-red-50 p-2 sm:p-4 rounded-r-lg"
       >
         <div class="flex items-start">
           <div class="flex-shrink-0">
             <svg
-              class="h-5 w-5 sm:h-6 sm:w-6 text-nasdaq-red"
+              class="h-4 w-4 sm:h-6 sm:w-6 text-nasdaq-red"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -29,11 +29,11 @@
               />
             </svg>
           </div>
-          <div class="ml-2 sm:ml-3 flex-1">
-            <h3 class="text-base sm:text-lg font-medium text-red-900">
+          <div class="ml-1.5 sm:ml-3 flex-1">
+            <h3 class="text-sm sm:text-lg font-medium text-red-900">
               ⚠️ 進行中的下跌
             </h3>
-            <div class="mt-2 text-xs sm:text-sm text-red-800">
+            <div class="mt-1 sm:mt-2 text-xs sm:text-sm text-red-800">
               <p>
                 <strong>峰值日期:</strong>
                 {{ formatDate(period.start_date) }}
@@ -72,12 +72,12 @@
       <div
         v-for="period in completedPeriods"
         :key="period.start_date"
-        class="border-l-4 border-gray-300 bg-gray-50 p-3 sm:p-4 rounded-r-lg"
+        class="border-l-4 border-gray-300 bg-gray-50 p-2 sm:p-4 rounded-r-lg"
       >
         <div class="flex items-start">
           <div class="flex-shrink-0">
             <svg
-              class="h-5 w-5 sm:h-6 sm:w-6 text-gray-400"
+              class="h-4 w-4 sm:h-6 sm:w-6 text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -90,11 +90,11 @@
               />
             </svg>
           </div>
-          <div class="ml-2 sm:ml-3 flex-1">
-            <h3 class="text-base sm:text-lg font-medium text-gray-900">
+          <div class="ml-1.5 sm:ml-3 flex-1">
+            <h3 class="text-sm sm:text-lg font-medium text-gray-900">
               歷史下跌期間
             </h3>
-            <div class="mt-2 text-xs sm:text-sm text-gray-700">
+            <div class="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-700">
               <p>
                 <strong>期間:</strong>
                 {{ formatDate(period.start_date) }} →
@@ -112,9 +112,9 @@
                 <strong>最大下跌幅度:</strong>
                 {{ period.decline_percentage.toFixed(2) }}%
               </p>
-              <div v-if="period.alert_levels.length > 0" class="mt-3">
+              <div v-if="period.alert_levels.length > 0" class="mt-1.5 sm:mt-3">
                 <strong>觸發的警報等級:</strong>
-                <div class="flex flex-wrap gap-2 sm:gap-3 mt-2">
+                <div class="flex flex-wrap gap-2 sm:gap-3 mt-1.5 sm:mt-2">
                   <button
                     v-for="level in period.alert_levels"
                     :key="level"

@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white rounded-lg shadow p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6">
-    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">K線圖表</h2>
+  <div class="bg-white rounded-lg shadow p-2 sm:p-4 lg:p-6 mb-2 sm:mb-6">
+    <h2 class="text-sm sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-4">K線圖表</h2>
     
     <div class="relative">
       <!-- Chart Container -->
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Chart Info -->
-    <div class="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600">
+    <div class="mt-1.5 sm:mt-4 text-xs sm:text-sm text-gray-600">
       <p>
         紅色區域表示下跌期間 (峰值到谷底 >10%)
       </p>
@@ -55,7 +55,7 @@ const selectedAlert = ref({
 const chartStyle = computed(() => {
   // Use window.innerWidth to determine device size
   const width = typeof window !== 'undefined' ? window.innerWidth : 1024
-  const height = width < 640 ? '300px' : width < 1024 ? '400px' : '500px'
+  const height = width < 640 ? '150px' : width < 1024 ? '350px' : '500px'
   return `height: ${height};`
 })
 
