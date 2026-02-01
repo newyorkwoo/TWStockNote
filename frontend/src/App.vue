@@ -6,7 +6,7 @@
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5 sm:gap-0">
           <div>
             <h1 class="text-base sm:text-2xl lg:text-3xl font-bold text-gray-900">
-              Nasdaq 下跌分析
+              Nasdaq 下跌通知
             </h1>
           </div>
           <button
