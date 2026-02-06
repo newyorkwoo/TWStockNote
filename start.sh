@@ -42,6 +42,14 @@ cd ..
 # 等待後端啟動
 sleep 3
 
+# 更新 Nasdaq 歷史資料
+echo ""
+echo "更新 Nasdaq 歷史資料..."
+curl -X POST http://localhost:8000/api/nasdaq/update
+echo ""
+echo "資料更新完成！"
+echo ""
+
 # 啟動前端
 echo "啟動前端..."
 cd frontend
